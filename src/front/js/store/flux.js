@@ -13,12 +13,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			highlights: [],
 		},
+
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
+			},
+
+			addMovement: (interval) => {
+				const store = getStore();
+				setStore({highlights: interval});
 			},
 
 			getMessage: async () => {
