@@ -38,16 +38,15 @@ export const Home = () => {
 					<ReactPlayer
 						url="https://www.youtube.com/watch?v=KJYOUBhLsrc&t=180s"
 						controls
-						autoPlay
+						playing
 						ref={repro}
 					/>
-					<button onClick={()=>verTiempo()}>ver tiempo</button>
-					<div>{time && <p>Tiempo Reproducido: {time}</p>}</div>
-					<button onClick={()=>Navigate("/misjugadas")}> ver Jugadas</button>
+					<button className="mt-3 btn-save" onClick={()=>verTiempo()}>SAVE</button>
+					<div>{time && <p>Minuto Capturado: {time}</p>}</div>
 				</div>
 			</div>
-			<div className="col-4">
-				<div>{highs.map((item,index)=>(<div key={index}><button onClick={()=>goToTime(item)}>ver jugada {index+1}</button></div>))}</div>
+			<div className="col-4 mt-5">
+				<div>{highs.map((item,index)=>(<div key={index}><button className="my-2 btn-high" onClick={()=>goToTime(item)}>ver jugada {index+1}</button></div>))}</div>
 
 			</div>
 		</div>

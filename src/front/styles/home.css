@@ -5,3 +5,19 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+
+.btn-save{
+    background-color: rgba(230, 107, 54, 0.84);
+    font-family: "Gloria Hallelujah";
+    font-weight: 400;
+    font-style: normal;
+}
+
+.btn-high{
+    background-color: rgb(22, 151, 31);
+    font-family: "Gloria Hallelujah";
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 10px;
+}
