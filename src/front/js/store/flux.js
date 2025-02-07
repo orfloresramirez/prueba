@@ -15,6 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			highlights: [],
+			player: [],
 		},
 
 		actions: {
@@ -27,6 +28,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				setStore({highlights: interval});
 			},
+
+
+			getPlayer: async (search) => {
+				const store = getStore()
+				try{
+					const resp = await fetch(`https://cors-anywhere.herokuapp.com/https://transfermarkt-api.fly.dev/players/search/${search}`, {
+						// mode: 'no-cors',
+						headers:{
+							"accept": "application/json",
+        					"X-Requested-With": "XMLHttpRequest",
+						},
+					});
+					const data = await resp.json()
+					if (resp.status === 200){
+					localStorage.setItem("player",JSON.stringify(data.results))
+					setStore({ player: data.results })
+					// don't forget to return something, that is how the async resolves
+					
+					}
+				}catch (err) {
+					console.error("Error:", err);
+				}
+			},
+
 
 			getMessage: async () => {
 				try{
